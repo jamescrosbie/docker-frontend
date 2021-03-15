@@ -1,0 +1,17 @@
+name: docker front end
+
+# Controls when the action will run. 
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build container
+        run: |
+          echo building container,
+          docker build -t jamescrosbie/front-end -f Dockerfile.dev .
+          
