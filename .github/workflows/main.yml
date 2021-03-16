@@ -1,9 +1,9 @@
 name: docker front end
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
@@ -13,5 +13,5 @@ jobs:
       - name: build container
         run: |
           echo building container,
-          docker build -t jamescrosbie/front-end -f Dockerfile.dev .
-          
+          docker build -t jamescrosbie/front-end -f Dockerfile.dev . ,
+          docker run jamescrosbie/front-end npm run test -- --coverage
