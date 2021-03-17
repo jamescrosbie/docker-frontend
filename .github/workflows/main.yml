@@ -1,6 +1,5 @@
 name: docker front end
 
-# Controls when the action will run.
 on:
   push:
     branches: [master]
@@ -9,9 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: build container
+      - uses: actions/checkout@v2
         run: |
-          echo building container,
+          echo Building container
           docker build -t jamescrosbie/front-end -f Dockerfile.dev .
-          docker run jamescrosbie/front-end npm run test -- --coverage
+          docker run -e CI=true jamescrosbie/front-end npm run test
