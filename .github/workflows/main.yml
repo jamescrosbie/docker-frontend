@@ -11,6 +11,6 @@ jobs:
       - name: build container
       - uses: actions/checkout@v2
         run: |
-          echo Building container
+          echo Building container,
           docker build -t jamescrosbie/front-end -f Dockerfile.dev .
           docker run -e CI=true jamescrosbie/front-end npm run test
